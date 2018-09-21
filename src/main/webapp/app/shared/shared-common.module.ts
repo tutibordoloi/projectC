@@ -3,8 +3,9 @@ import { Title } from '@angular/platform-browser';
 import { registerLocaleData } from '@angular/common';
 import locale from '@angular/common/locales/en';
 
+import { WindowRef } from './tracker/window.service';
 import {
-    ProjectCSharedLibsModule,
+    ZdpSharedLibsModule,
     JhiLanguageHelper,
     FindLanguageFromKeyPipe,
     JhiAlertComponent,
@@ -13,7 +14,7 @@ import {
 
 @NgModule({
     imports: [
-        ProjectCSharedLibsModule
+        ZdpSharedLibsModule
     ],
     declarations: [
         FindLanguageFromKeyPipe,
@@ -21,7 +22,9 @@ import {
         JhiAlertErrorComponent
     ],
     providers: [
+        FindLanguageFromKeyPipe,
         JhiLanguageHelper,
+        WindowRef,
         Title,
         {
             provide: LOCALE_ID,
@@ -29,13 +32,13 @@ import {
         },
     ],
     exports: [
-        ProjectCSharedLibsModule,
+        ZdpSharedLibsModule,
         FindLanguageFromKeyPipe,
         JhiAlertComponent,
         JhiAlertErrorComponent
     ]
 })
-export class ProjectCSharedCommonModule {
+export class ZdpSharedCommonModule {
     constructor() {
         registerLocaleData(locale);
     }

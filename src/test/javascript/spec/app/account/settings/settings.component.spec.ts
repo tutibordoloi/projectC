@@ -1,9 +1,11 @@
 import { ComponentFixture, TestBed, async } from '@angular/core/testing';
 import { Observable } from 'rxjs/Observable';
 
-import { ProjectCTestModule } from '../../../test.module';
+import { ZdpTestModule } from '../../../test.module';
 import { Principal, AccountService } from '../../../../../../main/webapp/app/shared';
 import { SettingsComponent } from '../../../../../../main/webapp/app/account/settings/settings.component';
+import { JhiTrackerService } from '../../../../../../main/webapp/app/shared/tracker/tracker.service';
+import { MockTrackerService } from '../../../helpers/mock-tracker.service';
 
 describe('Component Tests', () => {
 
@@ -16,9 +18,13 @@ describe('Component Tests', () => {
 
         beforeEach(async(() => {
             TestBed.configureTestingModule({
-                imports: [ProjectCTestModule],
+                imports: [ZdpTestModule],
                 declarations: [SettingsComponent],
                 providers: [
+                    {
+                        provide: JhiTrackerService,
+                        useClass: MockTrackerService
+                    },
                 ]
             })
             .overrideTemplate(SettingsComponent, '')

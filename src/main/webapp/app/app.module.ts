@@ -10,12 +10,12 @@ import { AuthInterceptor } from './blocks/interceptor/auth.interceptor';
 import { AuthExpiredInterceptor } from './blocks/interceptor/auth-expired.interceptor';
 import { ErrorHandlerInterceptor } from './blocks/interceptor/errorhandler.interceptor';
 import { NotificationInterceptor } from './blocks/interceptor/notification.interceptor';
-import { ProjectCSharedModule, UserRouteAccessService } from './shared';
-import { ProjectCAppRoutingModule} from './app-routing.module';
-import { ProjectCHomeModule } from './home/home.module';
-import { ProjectCAdminModule } from './admin/admin.module';
-import { ProjectCAccountModule } from './account/account.module';
-import { ProjectCEntityModule } from './entities/entity.module';
+import { ZdpSharedModule, UserRouteAccessService } from './shared';
+import { ZdpAppRoutingModule} from './app-routing.module';
+import { ZdpHomeModule } from './home/home.module';
+import { ZdpAdminModule } from './admin/admin.module';
+import { ZdpAccountModule } from './account/account.module';
+import { ZdpEntityModule } from './entities/entity.module';
 import { PaginationConfig } from './blocks/config/uib-pagination.config';
 // jhipster-needle-angular-add-module-import JHipster will add new module here
 import {
@@ -31,13 +31,13 @@ import {
 @NgModule({
     imports: [
         BrowserModule,
-        ProjectCAppRoutingModule,
+        ZdpAppRoutingModule,
         Ng2Webstorage.forRoot({ prefix: 'jhi', separator: '-'}),
-        ProjectCSharedModule,
-        ProjectCHomeModule,
-        ProjectCAdminModule,
-        ProjectCAccountModule,
-        ProjectCEntityModule,
+        ZdpSharedModule,
+        ZdpHomeModule,
+        ZdpAdminModule,
+        ZdpAccountModule,
+        ZdpEntityModule,
         // jhipster-needle-angular-add-module JHipster will add new module here
     ],
     declarations: [
@@ -88,4 +88,4 @@ import {
     ],
     bootstrap: [ JhiMainComponent ]
 })
-export class ProjectCAppModule {}
+export class ZdpAppModule {}

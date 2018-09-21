@@ -4,6 +4,7 @@ import { Router, ActivatedRouteSnapshot } from '@angular/router';
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 
 import { LANGUAGES } from './language.constants';
+import { FindLanguageFromKeyPipe } from './find-language-from-key.pipe';
 
 @Injectable()
 export class JhiLanguageHelper {
@@ -13,6 +14,7 @@ export class JhiLanguageHelper {
         private translateService: TranslateService,
         // tslint:disable-next-line: no-unused-variable
         private rootRenderer: RendererFactory2,
+        private findLanguageFromKeyPipe: FindLanguageFromKeyPipe,
         private titleService: Title,
         private router: Router
     ) {
@@ -45,14 +47,19 @@ export class JhiLanguageHelper {
         this.translateService.onLangChange.subscribe((event: LangChangeEvent) => {
             this.renderer.setAttribute(document.querySelector('html'), 'lang', this.translateService.currentLang);
             this.updateTitle();
+            this.updatePageDirection();
         });
     }
 
     private getPageTitle(routeSnapshot: ActivatedRouteSnapshot) {
-        let title: string = (routeSnapshot.data && routeSnapshot.data['pageTitle']) ? routeSnapshot.data['pageTitle'] : 'projectCApp';
+        let title: string = (routeSnapshot.data && routeSnapshot.data['pageTitle']) ? routeSnapshot.data['pageTitle'] : 'zdpApp';
         if (routeSnapshot.firstChild) {
             title = this.getPageTitle(routeSnapshot.firstChild) || title;
         }
         return title;
+    }
+
+    private updatePageDirection() {
+        this.renderer.setAttribute(document.querySelector('html'), 'dir', this.findLanguageFromKeyPipe.isRTL(this.translateService.currentLang) ? 'rtl' : 'ltr');
     }
 }

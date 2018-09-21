@@ -16,4 +16,4 @@ const LAYOUT_ROUTES = [
         RouterModule
     ]
 })
-export class ProjectCAppRoutingModule {}
+export class ZdpAppRoutingModule {}

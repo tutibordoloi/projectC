@@ -17,17 +17,19 @@ eureka:
     client:
         enabled: true
     instance:
-        appname: projectC
-        instanceId: projectC:${spring.application.instance-id:${random.value}}
+        appname: ZDP
+        instanceId: ZDP:${spring.application.instance-id:${random.value}}
 
 spring:
     application:
-        name: projectC
+        name: ZDP
     jackson:
         serialization.write_dates_as_timestamps: false
+    cache:
+        type: simple
     datasource:
         type: com.zaxxer.hikari.HikariDataSource
-        url: jdbc:h2:mem:projectC;DB_CLOSE_DELAY=-1
+        url: jdbc:h2:mem:ZDP;DB_CLOSE_DELAY=-1
         name:
         username:
         password:
@@ -92,7 +94,7 @@ jhipster:
     security:
         authentication:
             jwt:
-                secret: 67760b061a57d666914bfb87a6d03b6065f7315f
+                secret: fe2779f09974450711a4d911906ab0b683d998c6
                 # Token is valid 24 hours
                 token-validity-in-seconds: 86400
     metrics: # DropWizard Metrics configuration, used by MetricsConfiguration

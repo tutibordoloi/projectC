@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed, async } from '@angular/core/testing';
 
-import { ProjectCTestModule } from '../../../test.module';
+import { ZdpTestModule } from '../../../test.module';
 import { JhiHealthCheckComponent } from '../../../../../../main/webapp/app/admin/health/health.component';
 import { JhiHealthService } from '../../../../../../main/webapp/app/admin/health/health.service';
 
@@ -14,7 +14,7 @@ describe('Component Tests', () => {
 
         beforeEach(async(() => {
             TestBed.configureTestingModule({
-                imports: [ProjectCTestModule],
+                imports: [ZdpTestModule],
                 declarations: [JhiHealthCheckComponent],
                 providers: [
                     JhiHealthService

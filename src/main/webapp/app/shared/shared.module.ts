@@ -2,8 +2,8 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { DatePipe } from '@angular/common';
 
 import {
-    ProjectCSharedLibsModule,
-    ProjectCSharedCommonModule,
+    ZdpSharedLibsModule,
+    ZdpSharedCommonModule,
     CSRFService,
     AuthServerProvider,
     AccountService,
@@ -13,13 +13,14 @@ import {
     LoginModalService,
     JhiLoginModalComponent,
     Principal,
+    JhiTrackerService,
     HasAnyAuthorityDirective,
 } from './';
 
 @NgModule({
     imports: [
-        ProjectCSharedLibsModule,
-        ProjectCSharedCommonModule
+        ZdpSharedLibsModule,
+        ZdpSharedCommonModule
     ],
     declarations: [
         JhiLoginModalComponent,
@@ -32,13 +33,14 @@ import {
         StateStorageService,
         Principal,
         CSRFService,
+        JhiTrackerService,
         AuthServerProvider,
         UserService,
         DatePipe
     ],
     entryComponents: [JhiLoginModalComponent],
     exports: [
-        ProjectCSharedCommonModule,
+        ZdpSharedCommonModule,
         JhiLoginModalComponent,
         HasAnyAuthorityDirective,
         DatePipe
@@ -46,4 +48,4 @@ import {
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 
 })
-export class ProjectCSharedModule {}
+export class ZdpSharedModule {}
